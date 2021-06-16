@@ -28,5 +28,17 @@ describe('Faucet', function () {
       expect(await token.allowance(owner.address, faucet.address)).to.be.equal(INIT_SUPPLY);
     });
   })
+
+  describe('Faucet', async function() {
+    it("Should send 10 tokens to user", async function () {
+      await expect(() => faucet.connect(alice).requestTokens())
+      .to.changeTokenBalance(token, alice, ethers.utils.parseEther('10'))
+    });
+    it("Should set allowedToWithdraw to false", async function () {
+      await faucet.connect(alice).requestTokens()
+      expect(await faucet.allowedToWithdraw(alice.address))
+      .to.equal(false);
+    });
+  });
   
 });
