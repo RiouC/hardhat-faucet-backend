@@ -1,12 +1,10 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable no-undef */
 
-/*
+
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
-require('dotenv').config();
 
-const OWNER_ADDRESS = process.env.OWNER_ADDRESS;
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -45,4 +43,3 @@ main()
     console.error(error);
     process.exit(1);
   });
-*/

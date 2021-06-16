@@ -3,6 +3,8 @@
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
 
+// exports.main = async () => {
+// if we want to call deploy-token from deploy-faucet, we need to export it
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
@@ -17,7 +19,7 @@ async function main() {
 
   // We get the contract to deploy
   const Token = await hre.ethers.getContractFactory('Token');
-  const token = await Token.deploy('Hello, Hardhat!');
+  const token = await Token.deploy(deployer.address, 1000000000000);
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc
@@ -25,10 +27,6 @@ async function main() {
 
   // Create/update deployed.json and print usefull information on the console.
   await deployed('Token', hre.network.name, token.address);
-
-  if (hre.network.name !== 'mainet') {
-    // TO DO approve faucet smart contract
-  }
 }
 
 // We recommend this pattern to be able to use async/await everywhere
