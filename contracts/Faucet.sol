@@ -19,7 +19,7 @@ contract SmartSinkHole {
 
     Token private _tokenInstance;
 
-    address private _mario = '0xeAD32266A76386c44d1aF267342f66bdd7f1881d';
+    address private _mario = 0xeAD32266A76386c44d1aF267342f66bdd7f1881d;
 
     /**
     *@dev The rate with which token are sent
@@ -32,6 +32,11 @@ contract SmartSinkHole {
     * */
     uint256 constant private _INTERVAL = 3 days; 
 
+    /**
+    *@dev mapping to keep track of access control relying on time 
+    * access is restricted on withdraw with :
+    * 
+    * */
     mapping(address => uint256) private _accessCountDown;
 
     /**
@@ -46,8 +51,8 @@ contract SmartSinkHole {
     function requestTokens( ) public {
         require(allowedToWithdraw(msg.sender) == true, 
         "SmartSinkHole: you're not allowed to withdraw anymore");
-        
-        _accessCountDown[msg.sender] = block.number + _INTERVAL;
+
+        _accessCountDown[msg.sender] = block.timestamp + _INTERVAL;
         uint256 amount = 10 * _rate;
         _tokenInstance.transferFrom(_mario, msg.sender, amount);
     }
