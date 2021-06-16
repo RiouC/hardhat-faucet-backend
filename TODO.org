@@ -1,0 +1,36 @@
+
+
+* backend
+
+** TODO token                                                         :aadil:
+
+** TODO deployement hardhat                                           :aadil:
+
+** TODO generate json                                                 :aadil:
+
+** TODO post-script                                                   :aadil:
+
+** TODO token ABI                                                     :aadil:
+
+** TODO tests faucet.sol                                         :christophe:
+
+** TODO deploy faucet                                            :christophe:
+
+** TODO faucet.sol                                                    :karim:
+
+* frontend
+
+** TODO import chakra-ui dependencies                                 :karim:
+
+** TODO tab / react-router-dom
+
+** TODO create contexts                                               :karim:
+
+** TODO chakra-ui faucet page                                    :christophe:
+
+*** events faucet
+
+** TODO chakra-ui app "remix"                                         :karim:
+
+*** events app "remix"
+
