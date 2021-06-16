@@ -2,6 +2,9 @@
 /* eslint-disable no-undef */
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
+require('dotenv').config();
+
+const OWNER_ADDRESS = process.env.OWNER_ADDRESS;
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -16,18 +19,19 @@ async function main() {
   console.log('Deploying contracts with the account:', deployer.address);
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory('Greeter');
-  const greeter = await Greeter.deploy('Hello, Hardhat!');
+  const Faucet = await hre.ethers.getContractFactory('Faucet');
+  const faucet = await Faucet.deploy('Hello, Hardhat!');
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc
-  await greeter.deployed();
+  await faucet.deployed();
 
   // Create/update deployed.json and print usefull information on the console.
-  await deployed('Greeter', hre.network.name, greeter.address);
+  await deployed('Faucet', hre.network.name, faucet.address);
 
-  if(hre.network.name !== 'mainet') {
+  if(hre.network.name !== 'mainnet') {
     // approve
+    await token.connect(OWNER_ADDRESS).approve(faucet.address, faucet.initialSupply());
   }
 }
 
