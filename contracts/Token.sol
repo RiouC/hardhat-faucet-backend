@@ -13,8 +13,9 @@ contract Token is ERC20 {
      */
     constructor(address owner_, uint256 initialSupply_) ERC20("Token", "KCA") {
         _owner = owner_;
+
         _initialSupply = initialSupply_;
-        _mint(owner_, _initialSupply * 10**decimals());
+        _mint(owner_, initialSupply_ * 10 ** decimals());
     }
 
     /**
