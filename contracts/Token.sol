@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
@@ -11,9 +11,9 @@ contract Token is ERC20 {
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
-    constructor(address owner_, uint256 initialSupply) ERC20("Token", "KCA") {
+    constructor(address owner_, uint256 initialSupply_) ERC20("Token", "KCA") {
         _owner = owner_;
-        _initialSupply = initialSupply;
+        _initialSupply = initialSupply_;
         _mint(owner_, _initialSupply * 10**decimals());
     }
 
