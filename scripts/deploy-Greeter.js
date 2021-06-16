@@ -25,6 +25,10 @@ async function main() {
 
   // Create/update deployed.json and print usefull information on the console.
   await deployed('Greeter', hre.network.name, greeter.address);
+
+  if(hre.network.name !== 'mainet') {
+    // approve
+  }
 }
 
 // We recommend this pattern to be able to use async/await everywhere
