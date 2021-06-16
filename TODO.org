@@ -18,6 +18,10 @@
 
 ** TODO faucet.sol                                                    :karim:
 
+** TODO natspec                                                       :karim:
+
+** TODO securityFaucet.md                                             :karim:
+
 * frontend
 
 ** TODO import chakra-ui dependencies                                 :karim:
