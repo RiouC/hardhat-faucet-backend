@@ -31,7 +31,7 @@ async function main() {
 
   if(hre.network.name !== 'mainnet') {
     // approve
-    await token.connect(OWNER_ADDRESS).approve(faucet.address, token.initialSupply());
+    await token.connect(deployer).approve(faucet.address, token.initialSupply());
   }
 }
 
