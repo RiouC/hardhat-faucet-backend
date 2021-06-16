@@ -10,9 +10,9 @@ contract Token is ERC20 {
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
-    constructor(address owner_, uint256 initialSupply) ERC20("Token", "KCA") {
+    constructor(address owner_, uint256 initialSupply_) ERC20("Token", "KCA") {
         _owner = owner_;
-        _mint(owner_, initialSupply * 10 ** decimals());
+        _mint(owner_, initialSupply_ * 10 ** decimals());
     }
 
     /**
