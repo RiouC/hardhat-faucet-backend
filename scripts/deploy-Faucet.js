@@ -1,5 +1,7 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable no-undef */
+
+/*
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
 
@@ -39,3 +41,4 @@ main()
     console.error(error);
     process.exit(1);
   });
+*/
