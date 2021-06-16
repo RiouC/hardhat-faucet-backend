@@ -24,12 +24,5 @@ contract Token is ERC20 {
     function owner() public view returns (address) {
         return _owner;
     }
-
-    /**
-     * @dev Returns the initial supply of the ERC20
-     */
-    function initialSupply() public view returns (uint256) {
-        return _initialSupply;
-    }
 }
 
