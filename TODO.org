@@ -16,7 +16,7 @@
 
 ** TODO deploy faucet                                            :christophe:
 
-** TODO faucet.sol                                                    :karim:
+** TODO faucet_revision.sol                                                    :karim:
 
 ** TODO natspec                                                       :karim:
 
