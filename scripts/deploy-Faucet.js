@@ -37,8 +37,6 @@ async function main() {
   const Faucet = await hre.ethers.getContractFactory('Faucet');
   console.log(obj); // Debug
   const faucet = await Faucet.deploy(token.address);
-  console.log('faucet addr');
-  console.log(faucet.address);
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc
