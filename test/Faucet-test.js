@@ -52,5 +52,23 @@ describe('Faucet', function () {
         "Faucet: you're not allowed to withdraw anymore"
       );
     });
+    it(`Should decrease Owner TokenBalance 2 times if user tries to withdraw after 3 days`, async function () {
+      await faucet.connect(alice).requestTokens();
+
+      let block = await ethers.provider.getBlock();
+      let timestamp = block.timestamp;
+      console.log(timestamp);
+      await ethers.provider.send('evm_increaseTime', [259200]);
+      await ethers.provider.send('evm_mine');
+      block = await ethers.provider.getBlock();
+      timestamp = block.timestamp;
+      console.log(timestamp);
+
+      await expect(() => faucet.connect(alice).requestTokens()).to.changeTokenBalance(
+        token,
+        owner,
+        ethers.utils.parseEther('-10')
+      );
+    });
   });
 });
