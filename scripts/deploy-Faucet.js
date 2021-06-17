@@ -30,13 +30,9 @@ async function main() {
   }
 
   // We get the contract to deploy
-  const Token = await hre.ethers.getContractFactory('Token');
-  const token = await Token.attach(obj.Token[hre.network.name].address);
-
-  // We get the contract to deploy
   const Faucet = await hre.ethers.getContractFactory('Faucet');
   console.log(obj); // Debug
-  const faucet = await Faucet.deploy(token.address);
+  const faucet = await Faucet.deploy(obj.Token[hre.network.name].address);
 
   // Attendre que le contrat soit réellement déployé, cad que la transaction de déploiement
   // soit incluse dans un bloc
