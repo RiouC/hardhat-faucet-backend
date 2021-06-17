@@ -1,7 +1,7 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable no-undef */
 
-/*
+
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
 require('dotenv').config();
@@ -45,4 +45,3 @@ main()
     console.error(error);
     process.exit(1);
   });
-*/
