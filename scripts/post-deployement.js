@@ -27,7 +27,10 @@ async function main() {
   console.log(faucet.address);
 
   if (hre.network.name !== 'mainet') {
-    await token.connect(deployer).approve(faucet.address, token.totalSupply());
+    await token.connect(deployer).approve(faucet.address, await token.totalSupply());
+    console.log(
+      `deployer ${deployer.address} has approved ${faucet.address} as a spender for ${await token.totalSupply()}`
+    );
   }
 }
 
