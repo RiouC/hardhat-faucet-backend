@@ -4,9 +4,7 @@
 
 const hre = require('hardhat');
 const { deployed } = require('./deployed');
-require('dotenv').config();
 
-const OWNER_ADDRESS = process.env.OWNER_ADDRESS;
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
