@@ -37,6 +37,7 @@ contract Faucet {
     mapping(address => uint256) private _lastAccess;
 
     event TokenSent(address indexed recipient, uint256 amount);
+
     event TimeRemaining(uint256 currentTimestamp, uint256 timestampLastAccess);
 
     /**
@@ -53,6 +54,9 @@ contract Faucet {
      * emit a TokenSent event
      */
     function requestTokens() public {
+        if (allowedToWithdraw(msg.sender) == false) {
+            emit TimeRemaining(block.timestamp, _lastAccess[msg.sender]);
+        }
         require(allowedToWithdraw(msg.sender) == true, "Faucet: you're not allowed to withdraw anymore");
 
         _lastAccess[msg.sender] = block.timestamp + _INTERVAL;
@@ -69,7 +73,6 @@ contract Faucet {
      * @return true or false
      */
     function allowedToWithdraw(address address_) public view returns (bool) {
-        emit TimeRemaining(block.timestamp, _lastAccess[address_]);
         if (_lastAccess[address_] == 0) {
             return true;
         } else if (block.timestamp >= _lastAccess[address_]) {
