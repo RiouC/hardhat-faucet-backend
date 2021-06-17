@@ -26,7 +26,9 @@ async function main() {
   const faucet = Faucet.attach(obj['Faucet'][hre.network.name]['address']);
   console.log(faucet.address);
 
-  await token.connect(deployer).approve(faucet.address, 100000000000);
+  if (hre.network.name !== 'mainet') {
+    await token.connect(deployer).approve(faucet.address, token.totalSupply());
+  }
 }
 
 main()
