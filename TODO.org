@@ -12,7 +12,7 @@
 
 ** TODO token ABI                                                     :aadil:
 
-** TODO tests faucet.sol                                         :christophe:
+** DONE tests faucet.sol                                         :christophe:
 
 ** DONE deploy faucet                                            :christophe:
 
