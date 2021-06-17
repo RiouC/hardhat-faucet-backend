@@ -20,11 +20,12 @@ async function main() {
   }
 
   const Token = await hre.ethers.getContractFactory('Token');
-  const token = Token.attach(await obj['Token'][hre.network.name]['address']);
+  const token = Token.attach(obj['Token'][hre.network.name]['address']);
   console.log(token.address);
   const Faucet = await hre.ethers.getContractFactory('Faucet');
-  const faucet = Faucet.attach(await obj['Faucet'][hre.network.name]['address']);
+  const faucet = Faucet.attach(obj['Faucet'][hre.network.name]['address']);
   console.log(faucet.address);
+
   await token.connect(deployer).approve(faucet.address, 100000000000);
 }
 
