@@ -12,7 +12,7 @@ const TOKEN_HOLDER_PRIVATE_KEY = process.env.TOKEN_HOLDER_PRIVATE_KEY;
  */
 module.exports = {
   solidity: '0.8.4',
-  /*
+
   networks: {
     mainnet: {
       url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
@@ -35,7 +35,7 @@ module.exports = {
       accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
     },
   },
-  */
+
   docgen: {
     path: './docs',
     clear: true,

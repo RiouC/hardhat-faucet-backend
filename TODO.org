@@ -2,23 +2,23 @@
 
 * backend
 
-** TODO token                                                         :aadil:
+** DONE token                                                         :aadil:
 
-** TODO deployement hardhat                                           :aadil:
+** DONE deployement hardhat                                           :aadil:
 
-** TODO generate json                                                 :aadil:
+** DONE generate json                                                 :aadil:
 
-** TODO post-script                                                   :aadil:
+** DONE post-deploy                                                   :aadil:
 
 ** TODO token ABI                                                     :aadil:
 
-** TODO tests faucet.sol                                         :christophe:
+** DONE tests faucet.sol                                         :christophe:
 
-** TODO deploy faucet                                            :christophe:
+** DONE deploy faucet                                            :christophe:
 
-** TODO faucet_revision.sol                                                    :karim:
+** TODO faucet_revision.sol                                           :karim:
 
-** TODO natspec                                                       :karim:
+** DONE natspec                                                       :karim:
 
 ** TODO securityFaucet.md                                             :karim:
 
