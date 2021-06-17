@@ -28,5 +28,26 @@ describe('Faucet', function () {
       expect(await token.allowance(owner.address, faucet.address)).to.be.equal(INIT_SUPPLY);
     });
   })
+
+  describe('Live Faucet', async function() {
+    it("Should send 10 tokens to user", async function () {
+      await expect(() => faucet.connect(alice).requestTokens())
+      .to.changeTokenBalance(token, alice, ethers.utils.parseEther('10'))
+    });
+    it("Should decrease Owner TokenBalance", async function () {
+      await expect(() => faucet.connect(alice).requestTokens())
+      .to.changeTokenBalance(token, owner, ethers.utils.parseEther('-10'))
+    });
+    it("Should set allowedToWithdraw to false", async function () {
+      await faucet.connect(alice).requestTokens()
+      expect(await faucet.allowedToWithdraw(alice.address))
+      .to.equal(false);
+    });
+    it("Should revert if use tries to withdraw before it is allowed again", async function () {
+      await faucet.connect(alice).requestTokens()
+      await expect(faucet.connect(alice).requestTokens())
+      .to.be.revertedWith("Faucet: you're not allowed to withdraw anymore");
+    });
+  });
   
 });

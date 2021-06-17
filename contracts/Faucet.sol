@@ -37,10 +37,15 @@ contract Faucet {
     * */
     mapping(address => uint256) private _accessCountDown;
 
+    
+
+    event TokenSent(address indexed recipient, uint256 amount);
+
     /**
     *@dev constructor for Faucet :
     *@param tokenAddress_ : the address of the token we want to transfer to users
     * */
+
     constructor(address tokenAddress_) {
         require(tokenAddress_ != address(0), "Faucet");
         _tokenInstance = Token(tokenAddress_);
@@ -48,11 +53,13 @@ contract Faucet {
 
     function requestTokens( ) public {
         require(allowedToWithdraw(msg.sender) == true, 
-        "SmartSinkHole: you're not allowed to withdraw anymore");
+        "Faucet: you're not allowed to withdraw anymore");
 
         _accessCountDown[msg.sender] = block.timestamp + _INTERVAL;
         uint256 amount = 10 * _rate;
         _tokenInstance.transferFrom(_tokenInstance.owner(), msg.sender, amount);
+
+        emit TokenSent(msg.sender, amount);
     }
 
     function allowedToWithdraw(address _address) public view returns (bool) {
@@ -62,10 +69,6 @@ contract Faucet {
             return true;
         }
         return false;
-    }
-
-    function tokenAddress() public pure returns(address) {
-
     }
 
 }
